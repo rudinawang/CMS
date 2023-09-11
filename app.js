@@ -1,6 +1,9 @@
 const express = require("express");
 const app = express();
 
+// Database Connection
+require("./model/index");
+
 app.set("view engine", "ejs");
 
 // front-end batw back-end ma data aauna lai handle garayko xa
