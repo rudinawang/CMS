@@ -13,7 +13,11 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 // All Blogs
-app.get("/", (req, res) => {
+app.get("/", async (req, res) => {
+  // table batw data nikalnu paryo
+  // blogs vannay table batw vaye jati ko data day vanayrw vanayko
+  const allBlogs = await blogs.findAll();
+  console.log(allBlogs);
   res.render("blogs.ejs");
 });
 
@@ -42,8 +46,10 @@ app.post("/createBlog", async (req, res) => {
     description: description,
   });
 
-  res.send("<h1>Form Submitted Successfully</h1>");
+  res.redirect("/");
 });
+
+// Database ko table batw data kasari nikalnay
 
 app.listen(3000, () => {
   console.log("Node.JS project has started at port 3000");
