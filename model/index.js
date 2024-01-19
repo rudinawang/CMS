@@ -1,6 +1,7 @@
 const dbConfig = require("../config/dbConfig");
 const { Sequelize, DataTypes } = require("sequelize");
 
+// la sequalize yo config haru lag ani database connect gardey vaneko hae
 const sequelize = new Sequelize(dbConfig.DB, dbConfig.USER, dbConfig.PASSWORD, {
   host: dbConfig.HOST,
   dialect: dbConfig.dialect,
@@ -27,7 +28,9 @@ const db = {};
 db.Sequelize = Sequelize;
 db.sequelize = sequelize;
 
-db.products = require("./blogModel")(sequelize, DataTypes);
+// Importing the model files
+
+db.blogs = require("./blogModel")(sequelize, DataTypes);
 
 db.sequelize.sync({ force: true }).then(() => {
   console.log("yes re-sync done");

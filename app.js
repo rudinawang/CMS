@@ -1,4 +1,5 @@
 const express = require("express");
+const { blogs } = require("./model/index");
 const app = express();
 
 // database Connection
@@ -23,8 +24,22 @@ app.get("/createBlog", (req, res) => {
 });
 
 //createBlog Post
-app.post("/createBlog", (req, res) => {
-  console.log(req.body.title);
+app.post("/createBlog", async (req, res) => {
+  // first Approach
+  const title = req.body.title;
+  const description = req.body.description;
+  const subTitle = req.body.subtitle;
+  // Second Approach
+  // const { title, description, subTitle } = req.body;
+  console.log(title, subTitle, description);
+  console.log(req.body);
+
+  // database ma halnu paryo hae
+  await blogs.create({
+    title: title,
+    subTitle: subTitle,
+    description: description,
+  });
   res.send("Form Submitted Successfully");
 });
 
