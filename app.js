@@ -1,6 +1,9 @@
 const express = require("express");
 const app = express();
 
+// database Connection
+require("./model/index");
+
 // tellling nodejs to set the env for view engine
 app.set("view engine", "ejs");
 
