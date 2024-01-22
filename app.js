@@ -14,8 +14,14 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 // allBlogs
-app.get("/", (req, res) => {
-  res.render("blogs");
+app.get("/", async (req, res) => {
+  // table batw data nikalnu paryo
+  // blogs vannay table batw vaye jati sabai data day vanayko
+  const allBlogs = await blogs.findAll(); // mongodb ma .find() vannay hunxa
+  console.log(allBlogs);
+
+  // blogs vannay key/name ma allBlogs/data pass garayko ejs FILE ma
+  res.render("blogs", { blogs: allBlogs });
 });
 
 //createBlogs
