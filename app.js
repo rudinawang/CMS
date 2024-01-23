@@ -46,7 +46,13 @@ app.post("/createBlog", async (req, res) => {
     subTitle: subTitle,
     description: description,
   });
-  res.send("Form Submitted Successfully");
+  // res.send("Form Submitted Successfully");
+  res.redirect("/");
+});
+
+//single blog page
+app.get("/single", (req, res) => {
+  res.render("singleBlog");
 });
 
 app.listen(3000, () => {
