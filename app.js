@@ -51,7 +51,7 @@ app.post("/createBlog", async (req, res) => {
 });
 
 //single blog page
-app.get("/single", (req, res) => {
+app.get("/single/:id", (req, res) => {
   res.render("singleBlog");
 });
 
