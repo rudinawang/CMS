@@ -51,8 +51,27 @@ app.post("/createBlog", async (req, res) => {
 });
 
 //single blog page
-app.get("/single/:id", (req, res) => {
-  res.render("singleBlog");
+app.get("/single/:id", async (req, res) => {
+  // first approach
+  // console.log(req.params.id);
+  // const id = req.params.id;
+
+  // second approach
+  const { id } = req.params;
+
+  //id ko data magnu/ find garnu paryo hamro table bata
+  const blog = await blogs.findAll({
+    where: {
+      id: id,
+    },
+  });
+
+  // second finding approach
+  // const blog = await blogs.findByPk(id);
+
+  console.log(blog);
+
+  res.render("singleBlog", { blog: blog });
 });
 
 app.listen(3000, () => {

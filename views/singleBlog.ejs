@@ -65,12 +65,11 @@
 
     <main>
       <article>
-        <h2>Title</h2>
-        <h3>SubTitle</h3>
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua.
-        </p>
+        <h2><%- blog[0].title %></h2>
+        <h3><%- blog[0].subTitle %></h3>
+        <p><%- blog[0].description %></p>
+        <div>Published on <%- blog[0].createdAt.toISOString().slice(0,10) %></div>
+        <div></div><%- blog[0].updatedAt %></div>
       </article>
     </main>
 
