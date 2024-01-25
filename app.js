@@ -74,6 +74,18 @@ app.get("/single/:id", async (req, res) => {
   res.render("singleBlog", { blog: blog });
 });
 
+// delete blog
+app.get("/delete/:id", async (req, res) => {
+  const { id } = req.params;
+  await blogs.destroy({
+    where: {
+      id: id,
+    },
+  });
+  res.redirect("/");
+  // res.send("delete");
+});
+
 app.listen(3000, () => {
   console.log("Node is Running on port 3000");
 });
