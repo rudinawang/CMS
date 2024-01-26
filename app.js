@@ -22,6 +22,10 @@ app.get("/", async (req, res) => {
 
   // blogs vannay key/name ma allBlogs/data pass garayko ejs FILE ma
   res.render("blogs", { blogs: allBlogs });
+  // res.json({
+  //   status: 200,
+  //   blogs: allBlogs,
+  // });
 });
 
 //createBlogs
@@ -48,6 +52,10 @@ app.post("/createBlog", async (req, res) => {
   });
   // res.send("Form Submitted Successfully");
   res.redirect("/");
+  // res.json({
+  //   status: 200,
+  //   message: "Blog Created Successfully",
+  // });
 });
 
 //single blog page
