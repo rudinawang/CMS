@@ -86,6 +86,46 @@ app.get("/delete/:id", async (req, res) => {
   // res.send("delete");
 });
 
+// EDIT blog
+
+app.get("/edit/:id", async (req, res) => {
+  const id = req.params.id;
+  // find blog of that id
+  const blog = await blogs.findAll({
+    where: {
+      id: id,
+    },
+  });
+  res.render("editBlog", { blog: blog });
+});
+
+app.post("/editBlog/:id", async (req, res) => {
+  const { id } = req.params;
+  console.log(req.body);
+  //Nagarnay Approach loopholes haru dhereai aauxa
+  // blogs.update(req.body, {
+  //   where: {
+  //     id: id,
+  //   },
+  // });
+  const title = req.body.title;
+  const subTitle = req.body.subtitle;
+  const description = req.body.description;
+  blogs.update(
+    {
+      title: title,
+      subTitle: subTitle,
+      description: description,
+    },
+    {
+      where: {
+        id: id,
+      },
+    }
+  );
+  res.redirect("/single/" + id);
+});
+
 app.listen(3000, () => {
   console.log("Node is Running on port 3000");
 });
