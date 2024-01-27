@@ -10,6 +10,7 @@ app.set("view engine", "ejs");
 
 // nodejs lai file access garna day vanyko
 app.use(express.static("public/"));
+app.use(express.static("hello/"));
 
 // form batw data aiirako xa tyo data lai yauta format dey oni handle garayrw tyo data lai backend ma liyerw aaijo vanayko
 app.use(express.json());
