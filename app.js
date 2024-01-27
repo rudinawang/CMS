@@ -17,6 +17,20 @@ app.use(express.json());
 
 app.use(express.urlencoded({ extended: true }));
 
+app.get("/port", (req, res) => {
+  const myData = [
+    {
+      name: "Rudra Nahawang Pandey",
+      whoAmI: "I am a Full Stack Developer",
+    },
+  ];
+  res.render("index", { myData: myData });
+});
+
+app.get("/components", (req, res) => {
+  res.render("components");
+});
+
 // allBlogs
 app.get("/", async (req, res) => {
   // table batw data nikalnu paryo
