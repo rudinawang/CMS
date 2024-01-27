@@ -8,6 +8,9 @@ require("./model/index");
 // tellling nodejs to set the env for view engine
 app.set("view engine", "ejs");
 
+// nodejs lai file access garna day vanyko
+app.use(express.static("public/"));
+
 // form batw data aiirako xa tyo data lai yauta format dey oni handle garayrw tyo data lai backend ma liyerw aaijo vanayko
 app.use(express.json());
 
