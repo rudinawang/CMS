@@ -75,13 +75,15 @@
     <title>Form Page</title>
   </head>
   <body>
-    <header>
+    <!-- <header>
       <h1>Edit Blog</h1>
     </header>
 
     <nav>
       <a href="/">Home</a>
-    </nav>
+    </nav> -->
+
+    <%- include("components/navbar") %>
 
     <section>
       <form action="/editBlog/<%- blog[0].id %>" method="post">
